@@ -1,0 +1,16 @@
+[Unit]
+Description=Open vSwitch via Podman
+Before=network.target network.service
+After=network-pre.target podman-ovsdb-server.service podman-ovs-vswitchd.service
+PartOf=network.target
+Requires=podman-ovsdb-server.service
+Requires=podman-ovs-vswitchd.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/true
+ExecStop=/bin/true
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

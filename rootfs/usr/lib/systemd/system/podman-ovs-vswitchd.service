@@ -1,6 +1,6 @@
 [Unit]
 [Unit]
-Description=Open vSwitch Forwarding Unit
+Description=Open vSwitch Forwarding Unit via Podman
 After=podman-ovs-vswitchd.service network-pre.target systemd-udev-settle.service
 Before=network.target network.service
 Requires=podman-ovs-vswitchd.service
