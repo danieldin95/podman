@@ -21,8 +21,8 @@ function prepare() {
 
 function start() {
   /usr/share/openvswitch/scripts/ovs-ctl --no-ovsdb-server \
-    --no-monitor --system-id=random \
-    ${OVS_USER_OPT} start $OPTIONS
+    --no-monitor --system-id=random ${OVS_USER_OPT} \
+    start $OPTIONS
 }
 
 
@@ -41,8 +41,8 @@ function stop() {
 
 function reload() {
   /usr/share/openvswitch/scripts/ovs-ctl --no-ovsdb-server \
-    --no-monitor --system-id=random \
-    ${OVS_USER_OPT} restart $OPTIONS
+    --no-monitor --system-id=random ${OVS_USER_OPT} \
+    restart $OPTIONS
 }
 
 

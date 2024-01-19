@@ -17,8 +17,8 @@ function prepare() {
   rm -f /run/openvswitch.useropts
   chown ${OVS_USER_ID} /var/run/openvswitch /var/log/openvswitch
   echo "OVS_USER_ID=${OVS_USER_ID}" > /run/openvswitch.useropts
-  if [ "$${OVS_USER_ID/:*/}" != "root" ]; then
-    echo "OVS_USER_OPT=--ovs-user=${OVS_USER_ID}" >> /run/openvswitch.useropts; 
+  if [ "${OVS_USER_ID/:*/}" != "root" ]; then
+    echo "OVS_USER_OPT=--ovs-user=${OVS_USER_ID}" >> /run/openvswitch.useropts
   fi
 }
 
