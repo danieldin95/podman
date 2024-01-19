@@ -1,0 +1,17 @@
+[Unit]
+[Unit]
+Description=Open vSwitch Forwarding Unit
+After=podman-ovs-vswitchd.service network-pre.target systemd-udev-settle.service
+Before=network.target network.service
+Requires=podman-ovs-vswitchd.service
+ReloadPropagatedFrom=podman-ovs-vswitchd.service
+AssertPathIsReadWrite=/var/run/openvswitch/db.sock
+PartOf=podman-openvswitch.service
+
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/opt/podman/ovs-vswitchd.sh start
+ExecStop=/opt/podman/ovs-vswitchd.sh stop
+ExecReload=/opt/podman/ovs-vswitchd.sh reload

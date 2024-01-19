@@ -1,0 +1,14 @@
+[Unit]
+Description=Open vSwitch Database Unit
+After=syslog.target network-pre.target
+Before=network.target network.service
+Wants=ovs-delete-transient-ports.service
+PartOf=podman-openvswitch.service
+
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/opt/podman/ovsdb-server.sh start
+ExecStop=/opt/podman/ovsdb-server.sh stop
+ExecReload=/opt/podman/ovsdb-server.sh reload
